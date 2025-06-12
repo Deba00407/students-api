@@ -2,6 +2,7 @@ package config
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 
@@ -11,6 +12,7 @@ import (
 type HTTPServer struct {
 	Host string `yaml:"host" env:"HOST" env-default:"localhost" env-required:"true"`
 	Port int    `yaml:"port" env:"PORT" env-default:"5001" env-required:"true"`
+	ServerPath string `yaml:"serverPath" env:"SERVER_PATH" env-required:"true"`
 }
 
 type Config struct {
@@ -49,5 +51,6 @@ func MustLoadConfig() *Config{
 		log.Fatalf("Could not read config file: %s", err.Error())
 	}
 
+	fmt.Println("Config loaded successfully")
 	return &config
 }

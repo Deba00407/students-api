@@ -3,3 +3,4 @@ storage : "storage/storage.db"
 http_server:
   port: 5001
   host: "localhost"
+  serverPath: "localhost:5001"
